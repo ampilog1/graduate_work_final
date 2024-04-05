@@ -1,0 +1,25 @@
+{% extends 'learning_app/base.html' %}
+{% block content %}
+<body>
+    <p>
+      {{ date }}
+    </p>
+
+    {% for vac in vacancy %}
+        <div class="card my-3">
+          <h5 class="card-header"><a href="{{ vac.link }}">{{ vac.name }}</a></h5>
+          <div class="card-body">
+             <p class="card-text">{{ vac.address }}</p>
+              <p><strong>{{ vac.salary }}</strong></p>
+          </div>
+        </div>
+    {% endfor %}
+    <form method="post" action="{% url 'learning_app:list' %}">
+        {% csrf_token %}
+        <label>город Москва</label><br>
+            {{ form.as_p }}
+        <input type="submit" value="Отправить">
+    </form>
+
+</body>
+{% endblock %}

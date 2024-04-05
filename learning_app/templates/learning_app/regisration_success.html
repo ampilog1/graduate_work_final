@@ -1,0 +1,19 @@
+{% extends 'learning_app/base.html' %}
+{% block content %}
+<body>
+    <p>
+      {{ date }}
+    </p>
+        {% if request.user.is_authenticated %}
+    <p>
+      {{ user.username }} поздравляю вы зарегистрированы
+    </p>
+        {% else %}
+            <p>
+              <label>Вы зарегистрированы как {{ user.username }} войдите пожалуйста</label><br>
+            </p>
+        {% endif %}
+
+
+</body>
+{% endblock %}

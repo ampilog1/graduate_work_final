@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Dear Santa</title>
+</head>
+    <body>
+        <form method="post">
+        {% csrf_token %}
+        <label>город Москва</label><br>
+            {{ form.as_p }}
+        <input type="submit" value="Отправить">
+    </form>
+    </body>
+</html>
