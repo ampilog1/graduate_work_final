@@ -32,12 +32,14 @@ def home(request):
             date = datetime.datetime.now().date()
             name = 'Dave'
             context = {'date': date, 'name': name, 'vacancy': vacancy, 'form': form}
-            return render(request, 'learning_app/home.html', context)
-
-    form = FindForm()
-    date = datetime.datetime.now().date()
-    name = 'Dave'
-    context = {'date': date, 'name': name, 'form': form}
+            return render(request, 'learning_app/list.html', context)
+        else:
+            return render(request, 'Learning_app/home.html', {'form': form})
+    else:
+        form = FindForm()
+        date = datetime.datetime.now().date()
+        name = 'Dave'
+        context = {'date': date, 'name': name, 'form': form}
 
     return render(request, 'learning_app/home.html', context)
 
